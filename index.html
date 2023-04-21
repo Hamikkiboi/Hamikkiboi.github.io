@@ -38,6 +38,26 @@
 		button:hover {
 			background-color: #0062cc;
 		}
+		form {
+			display: none;
+			margin-top: 20px;
+			text-align: left;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-size: 20px;
+			color: #007bff;
+		}
+		input[type=text], input[type=email] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+			margin-bottom: 20px;
+			width: 100%;
+			font-size: 18px;
+		}
 	</style>
 </head>
 <body>
@@ -46,7 +66,40 @@
 		<p>Tervetuloa juhlimaan ylioppilaaksi pääsyäni!</p>
 		<p>Aika: 3.6.2023 klo 18:00</p>
 		<p>Paikka: Osoite 123, 00100 Helsinki</p>
-		<button onclick="alert('Kiitos vastauksesta!')">Ilmoittaudu</button>
+		<button onclick="showForm()">Ilmoittaudu</button>
+		<form id="ilmoittautumislomake" onsubmit="saveData(event)">
+			<label for="nimi">Nimi:</label>
+			<input type="text" id="nimi" name="nimi" required>
+			<label for="sahkoposti">Sähköposti:</label>
+			<input type="email" id="sahkoposti" name="sahkoposti" required>
+			<input type="submit" value="Lähetä">
+		</form>
 	</div>
-</body>
-</html>
+
+
+<script>
+    function showForm() {
+      document.getElementById("ilmoittautumislomake").style.display = "block";
+      document.querySelector("button").style.display = "none";
+    }
+  
+    function saveData(event) {
+      event.preventDefault();
+      var nimi = document.getElementById("nimi").value;
+      var sahkoposti = document.getElementById("sahkoposti").value;
+      var ilmoittautuminen = {
+        nimi: nimi,
+        sahkoposti: sahkoposti
+      };
+      var ilmoittautumiset = JSON.parse(localStorage.getItem("ilmoittautumiset")) || [];
+      ilmoittautumiset.push(ilmoittautuminen);
+      localStorage.setItem("ilmoittautumiset", JSON.stringify(ilmoittautumiset));
+      document.getElementById("ilmoittautumislomake").reset();
+      document.getElementById("ilmoittautumislomake").style.display = "none";
+      document.querySelector("button").style.display = "inline-block";
+      alert("Kiitos ilmoittautumisesta, " + nimi + "!");
+    }
+  </script>
+
+
+  
