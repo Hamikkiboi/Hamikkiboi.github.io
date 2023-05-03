@@ -11,9 +11,9 @@
   }
   
   .container {
-	max-width: 0px;
+	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0px;
+	padding: 0 200px;
 	color:#000000
   }
   
@@ -103,25 +103,25 @@
   }
   
 
-  main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	height: 100vh;
-  }
-  
-  @media only screen and (max-width: 600px) {
-	main {
-	  padding: 20px;
-	}
-  }
-  
-  @media only screen and (max-width: 480px) {
-	h1 {
-	  font-size: 24px;
-	}
-	p {
-	  font-size: 14px;
-	}
-  }
+     main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      main {
+        padding: 20px;
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
