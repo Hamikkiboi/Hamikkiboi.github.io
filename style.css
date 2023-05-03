@@ -79,9 +79,28 @@
   main p {
 	font-size: 20px;
 	line-height: 1.6;
-	margin-bottom: 150px;
+	margin-bottom: 130px;
+	margin-left: 13%;
+	margin-right: 20%;
 	text-align: center; /* lisätty */
 	color:#fff
   }
+  .image-container {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .image-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgb(125, 38, 38);
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+  }
+  
 
   
